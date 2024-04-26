@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="mes">Selecione um mês</label>
+    <input type="number" name="mes" id="mes" min="1" max="12">
+    <br>
+    <br>
+    <label for="ano">Selecione um ano</label>
+    <input type="number" name="ano" id="ano">
+    <br>
+    <br>
+    <input type="button" value="Calcular" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Resposta: </label>
+    <span id="resp"></span>
+    
+
+
+
+    <script>
+    function calcular(){
+
+    let rosquinhas
+    let homercomeu
+    let totalDias
+    let resp
+    let diasimp
+    let mes = parseInt(document.getElementById("mes").value);
+    let ano = parseInt(document.getElementById("ano").value);
+
+    if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
+        totalDias = 31; rosquinhas = 8;}
+
+    else if (mes == 2)
+     if (ano%4 == 0){
+        totalDias = 29; rosquinhas = 9;}
+    else {totalDias = 28; rosquinhas = 7;}
+
+    else {totalDias = 30; rosquinhas = 6;}
+
+    diasimp = Math.ceil (totalDias/2);
+
+    homercomeu = diasimp*rosquinhas;
+
+
+    document.getElementById("mes").value = mes;
+    document.getElementById("ano").value = ano;
+    
+
+    resp = ("Homer Comeu" + homercomeu + "Rosquinhas do mês" + mes + "do ano" + ano)
+    document.getElementById("resp").textContent = "Homer Comeu " + homercomeu + " rosquinhas " + " no mês " + mes + " do ano " + ano;
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
