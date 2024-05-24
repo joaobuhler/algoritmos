@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+       
+        :root{
+           --fonte-primaria: "Poetsen One", sans-serif;
+        }
+       
+       h1{
+           font-family: var(--fonte-primaria);
+       }
+       </style>
+
+<h1>Contar Vogais</h1>
+<label for="palavra">Insira uma palavra ou uma Frase</label>
+<input type="text" name="palavra" id="palavra">
+<br>
+<br>
+<hr>
+<br>
+<input type="button" value="Contar Vogais" onclick="calcular()">
+<br>
+<br>
+<label for="resp">Resposta:</label>
+<span id="resp"></span>
+
+
+    <script>
+        function calcular(){
+            let cont = 0;
+                    let frase = document.getElementById("palavra").value;
+                    for (let i = 0; i < frase.length; i++) {
+                        let l = frase.charAt(i).toLowerCase();
+                        if (l === "a" || l === "e" || l === "i" || l === "o" || l === "u") {
+                            cont = cont + 1
+                        }
+                    }
+                    document.getElementById("resp").innerText = cont;
+                }
+    </script>
+
+
+
+
+
+</body>
+
+
+</html> 
