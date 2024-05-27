@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="numUser">Insira Um Número</label>
+    <input type="text" name="numUser" id="numUser">
+    <br>
+    <br>
+    <input type="button" value="Calcular" onclick="calcular()">
+    <br>
+    <br>
+    <div id="resp"> Resposta : </div>
+
+
+    <script>
+        function calcular() {
+
+            let max = parseInt(document.getElementById("numUser").value);
+            let soma = 0;
+
+            for (let i = 0; i <= max; i += 2) {
+                soma = soma + i;
+            }
+            document.getElementById("resp").innerHTML = soma;
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
