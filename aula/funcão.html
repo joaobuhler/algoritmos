@@ -16,32 +16,11 @@
     <input type="button" value="Calcular média" onclick="calcular()">
     <br>
     <br>
-    <div id="resp">Mostrar Média: </div>
-    <script>
-
-
-        let inputNota = [];
-
-        function calcular() {
-            n = document.getElementById("inputNota").value;
-            notas = n.split(",").map(Number);
-            let media = calcularMedia(notas);
-            document.getElementById("resp").innerText = media;
-        }
-
-        function calcularMedia(notas) {
-            let soma = 0
-            for (let i = 0; i < notas.length; i++) {
-                soma = soma + notas[i];
-            }
-
-            let media = soma / notas.length;
-            return media;
-        }
-
-
-    </script>
-
+    <label for="resp">A média é:</label>
+    <div id="resp"></div>
+    
+    <script src="func.js"></script>
+    
 
 </body>
 
