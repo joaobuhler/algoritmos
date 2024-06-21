@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função Parabólica</title>
+</head>
+
+<body>
+    <label for="ix">Ínicio do x:</label><br>
+    <input type="number" name="ix" id="ix"><br><br>
+    <label for="fx">Fim do x:</label><br>
+    <input type="number" name="fx" id="fx"><br><br>
+    <input type="button" value="Calcular" onclick="calcularYs()"><br><br>
+    <div id="resp">...</div>
+    <script>
+        function calcularYs() {
+            let ix = parseInt(document.getElementById("ix").value);
+            let fx = parseInt(document.getElementById("fx").value);
+            let y = 0;
+            let resp = "";
+            for (let x = ix; x <= fx; x++) {
+                y = x ** 2;
+                resp = resp + x + "; " + y + "\n";
+            }
+            document.getElementById("resp").innerText = resp;
+        }
+    </script>
+</body>
+
+</html>
