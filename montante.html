@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="dinheiroInvestido">Insira o quanto você quer investir</label>
+    <input type="number" id="dinheiroInvestido" name="dinheiroInvestido">
+    <br>
+    <input type="button" value="Calcular Rendimento" onclick="calcular()">
+    <br>
+    <label for="resp">Rendimento: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular(){
+            let dinheiroInvestido = parseFloat(document.getElementById("dinheiroInvestido").value);
+            let montante = dinheiroInvestido;
+            let RendimentoMensal = [0.71, 0.58, 0.74, 0.58, 0.71, 0.68, 0.66, 0.72, 0.61, 0.60, 0.58, 0.57];
+            let resp = "";
+             
+            for (let i = 0; i < RendimentoMensal.length; i++) {
+              montante += (RendimentoMensal[i] / 100 * montante);
+                
+            }
+            resp = montante.toFixed(2);
+            document.getElementById("resp").innerText = resp;
+
+
+
+        }
+
+    </script>
+    
+</body>
+</html>

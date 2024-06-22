@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="palavra">Insira uma Palavra</label>
+    <input type="text" id="palavra" name="palavra">
+    <input type="button" value="contador" onclick="calcular()">
+    <br>
+    <label for="resp">Quantidade Letras: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular(){
+            let palavra = (document.getElementById("palavra").value);
+            let contador = [0];
+            
+            for (let i = 0; i < palavra.length; i++) {
+                contador = i + 1;
+                
+            }
+
+            document.getElementById("resp").innerText = contador;
+
+
+        }
+    </script>
+    
+</body>
+</html>
