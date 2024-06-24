@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="num">Insira alguns números separados por vírgula</label>
+    <input type="text" id="num" name="num">
+    <input type="button" value="Soma" onclick="calcular()">
+    <br>
+    <label for="resp">Soma: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        let num = [];
+
+        function calcular() {
+            n = document.getElementById("num").value;
+            vetor = n.split(",").map(Number);
+            let saida = calcularSoma(vetor);
+            document.getElementById("resp").innerText = saida;
+        }
+
+        function calcularSoma(vetor) {
+            let soma = 0;
+            
+            for (let i = 0; i < vetor.length; i++) {
+                soma = soma + vetor[i];
+
+            }
+            return soma;
+
+
+        }
+    </script>
+
+</body>
+
+</html>
