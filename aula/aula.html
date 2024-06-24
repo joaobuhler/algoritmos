@@ -39,7 +39,9 @@
             let textoSaida = "";
             for (let i = 0; i < dados.length; i++) {
                 textoSaida += dados[i] + ",";
+            
             }
+            // a linha abaixo retira a vírgula presente no final
             textoSaida = textoSaida.substring(0, textoSaida.length - 1);
             document.getElementById(mostrarEmQualElemento).innerText = textoSaida;
         }           
