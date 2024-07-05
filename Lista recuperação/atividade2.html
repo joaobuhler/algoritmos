@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="b">Insira um valor para o cateto adjacente</label>
+    <input type="number" id="b" name="b">
+    <br>
+    <label for="c">Insira um valor para cateto oposto</label>
+    <input type="number" id="c" name="c">
+    <br>
+    <input type="button" value="Pitágoras" onclick="calcular()">
+    <br>
+    <label for="resp">Hipotenusa: </label>
+    <div id="resp"></div>
+    <br>
+
+    <script>
+         function calcular() {
+            num1 = document.getElementById("b").value;
+            num2 = document.getElementById("c").value;
+            let saida = calcularHipotenusa(num1, num2)
+            document.getElementById("resp").innerText = saida;  
+        }
+
+        function calcularHipotenusa(num1, num2){
+            let h = 0;
+            h = Math.sqrt(num1**2 + num2**2);
+            return h;
+
+        }
+    </script>
+    
+</body>
+</html>

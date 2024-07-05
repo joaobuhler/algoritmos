@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="inputconta">Insira o valor da sua conta</label>
+    <input type="number" id="inputconta" name="inputconta">
+    <br>
+    <br>
+    <input type="button" value="Calcular Gorjeta" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Valor da Gorjeta Calculado: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular() {
+            conta = document.getElementById("inputconta").value;
+            let saida = calcularConta(conta)
+            document.getElementById("resp").innerText = saida;
+
+        }
+
+        function calcularConta(conta) {
+
+            let gorjeta = 0;
+            let porcentagem = 0.10;
+            gorjeta = conta * porcentagem;
+            return gorjeta;
+        }
+    </script>
+
+</body>
+
+</html>

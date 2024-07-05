@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="num">Insira um número inteiro</label>
+    <input type="text" id="num" name="num">
+    <input type="button" value="Soma" onclick="calcular()">
+    <br>
+    <label for="resp">Multiplicação: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+    
+        function calcular() {
+            vetor = document.getElementById("num").value;
+            let saida = calcularMult(vetor);
+            document.getElementById("resp").innerText = saida;
+        }
+
+        function calcularMult(vetor) {
+            let mult = 0;
+            
+            for (let i = 0; i < vetor.length; i++) {
+                mult = vetor[i] * vetor[i];
+
+            }
+            return mult;
+
+
+        }
+    </script>
+
+</body>
+
+</html>

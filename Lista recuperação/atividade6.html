@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="inputNota">Insira uma nota</label>
+    <input type="number" id="inputNota" name="inputNota">
+    <br>
+    <label for="inputNota2">Insira uma nota</label>
+    <input type="number" id="inputNota2" name="inputNota2">
+    <br>
+    <label for="inputNota3">Insira uma nota</label>
+    <input type="number" id="inputNota3" name="inputNota3">
+    <br>
+    <label for="inputNota4">Insira uma nota</label>
+    <input type="number" id="inputNota4" name="inputNota4">
+    <br>
+    <br>
+    <input type="button" value="Calcular Conceito" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Situação: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular() {
+            nota1 = parseFloat(document.getElementById("inputNota").value);
+            nota2 = parseFloat(document.getElementById("inputNota2").value);
+            nota3 = parseFloat(document.getElementById("inputNota3").value);
+            nota4 = parseFloat(document.getElementById("inputNota4").value);
+            let mediaCalculada = calcularMedia(nota1, nota2, nota3, nota4);
+            let saida = calcularConceito(mediaCalculada);
+            document.getElementById("resp").innerText = "Com a Média " + mediaCalculada + " o conceito é " + conceito;
+
+        }
+
+        function calcularMedia(nota1, nota2, nota3, nota4) {
+            let media = 0;
+            media = (nota1 + nota2 + nota3 + nota4)/4;
+            return media;
+        }
+
+        function calcularConceito(media) {
+
+            if (media >= 9) {
+                conceito = "A";
+            }
+            else if (media >= 7.5) {
+                conceito = "B";
+            }
+            else if (media >= 6) {
+                conceito = "C";
+            }
+            else if (media >= 4) {
+                conceito = "D";
+            }
+            else {
+                conceito = "E";
+            }
+
+            return conceito;
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

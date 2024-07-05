@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputTemp">Insira uma temperatura em Graus Celsius</label>
+    <input type="number" id="inputTemp" name="inputTemp">
+    <br>
+    <br>
+    <input type="button" value="Converter em Fahrenheit" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Temperatura em Fahrenheit: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular() {
+            celsius = document.getElementById("inputTemp").value;
+            let saida = calcularFahrenheit(celsius)
+            document.getElementById("resp").innerText = saida;
+
+        }
+
+        function calcularFahrenheit(celsius) {
+
+            let fahrenheit = 0;
+            fahrenheit = celsius * 1.8 + 32;
+            return fahrenheit;
+        }
+    </script>
+
+</body>
+</html>
