@@ -19,15 +19,12 @@
 
    <script>
     function calcular(){
+
         let aux = parseInt(document.getElementById("inputAno").value);
+        
         let ano = calcularbissexto(aux);
-        if (ano = true){
-            resp = "O ano de " + ano + " é bissexto";
-        }
-        else{
-            resp = "O ano de " + ano + " não é bissexto";
-        }
-        document.getElementById("resp").innerText =
+     
+        document.getElementById("resp").innerText = ano ? "O ano é bissexto" : "Não é bissexto";
 
         function calcularbissexto(aux){
         if (ano % 4 == 0){

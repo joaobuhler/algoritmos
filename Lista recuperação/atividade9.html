@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="inputvalor">Insira um valor para calcular o desconto</label>
+    <input type="number" id="inputvalor" name="inputvalor">
+    <br>
+    <br>
+    <input type="button" value="Calcular Desconto" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Valor do desconto calculado: </label>
+    <div id="resp"></div>
+    <br>
+    <label for="resp2">Valor do acréscimo: </label>
+    <div id="resp2"></div>
+    <br>
+    <script>
+        function calcular() {
+            valor = parseFloat(document.getElementById("inputvalor").value);
+            let saida = calcularDesconto(valor);
+            let saida2 = calcularAcrescimo(valor);
+            document.getElementById("resp").innerText = saida;
+            document.getElementById("resp2").innerText = saida2;
+        }
+
+        function calcularDesconto(valor) {
+
+            let aux1 = 0;
+            let porcentagem = 0.05;
+            aux1 = valor * porcentagem;
+            let desconto = valor - aux1;
+            return desconto;
+        }
+
+        function calcularAcrescimo(valor) {
+
+            let aux = 0;
+            let porcentagem = 0.05;
+            aux = valor * porcentagem;
+            let acrescimo = valor + aux;
+            return acrescimo;
+        }
+    </script>
+
+</body>
+
+</html>

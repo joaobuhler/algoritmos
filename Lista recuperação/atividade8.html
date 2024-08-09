@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="inputIdade">Insira sua Idade</label>
+    <input type="number" id="inputIdade" name="inputIdade">
+    <br>
+    <br>
+    <input type="button" value="Calcular Idade" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Situação: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular() {
+            Idade = parseInt(document.getElementById("inputIdade").value);
+            let saida = calcularIdade(Idade)
+            document.getElementById("resp").innerText = "Com a Idade " + Idade + " a faixa etária é " + conceito;
+
+        }
+
+
+        function calcularIdade(Idade) {
+
+            if (Idade <= 12) {
+                conceito = "Criança";
+            }
+            else if (Idade <= 18) {
+                conceito = "Adolescente";
+            }
+            else if (Idade <= 60) {
+                conceito = "Adulta";
+            }
+            else {
+                conceito = "Idosa";
+            }
+
+            return conceito;
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
