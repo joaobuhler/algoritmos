@@ -12,32 +12,30 @@
     <input type="number" id="inputint" name="inputint">
     <br>
     <br>
-    <input type="button" value="Calcular Soma" onclick="calcular()">
+    <input type="button" value="Calcular Fatorial" onclick="calcular()">
     <br>
     <br>
-    <label for="resp">Valor da soma dos números: </label>
+    <label for="resp">Fatorial desse número: </label>
     <div id="resp"></div>
     <br>
 
     <script>
         function calcular() {
-            n = parseInt(document.getElementById("inputint").value);
-            let saida = calcularSoma(n);
+            num = parseInt(document.getElementById("inputint").value);
+            let saida = calcularFatorial(num);
             document.getElementById("resp").innerText = saida;
         }
 
-        function calcularSoma(n) {
-
-            let soma = 0;
-            for (let i = 1; i <= n; i++) {
-                soma += i;
-            }
-            return soma;
+        function calcularFatorial(num) {
+            for (let i = num - 1; i >= 1; i--) {
+                num = num * i;}
+                return num;
 
 
+
+            
 
         }
-
 
     </script>
 </body>
