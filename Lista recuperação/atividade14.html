@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <label for="inputPalavra">Palavra</label>
+    <input type="text" name="inputPalavra" id="inputPalavra">
+    <br>
+    <br>
+    <input type="button" value="calcular" onclick="palindromo()">
+    <br>
+    <br>
+    <label for="resposta">Resultado: </label>
+      <div id="resposta"></div>
+  
+    <script>
+        function palindromo() {
+
+            let palavra = document.getElementById("inputPalavra").value.toLowerCase();
+            let novaPalavra = "";
+            let letra = "";
+
+            for (let i = palavra.length - 1; i >= 0; i--) {
+                letra = palavra.charAt(i);
+                novaPalavra += letra;
+                let aux = validar(palavra, novaPalavra);
+             if (aux) {
+             resp = 'A palavra é um palindromo'
+             }
+             else {
+             resp = 'A palavra não é um palindromo'
+             }
+             document.getElementById("resposta").innerText = resp;
+}
+            }  
+         
+            function validar(palavra, novaPalavra) {
+                let validar = false;
+                if (novaPalavra === palavra) {
+            validar = true;
+             }
+                 return validar;
+}
+        
+    </script>
+</body>
+
+</html>
