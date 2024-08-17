@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputNome">Insira um Nome qualquer</label>
+    <input type="text" id="inputNome" name="inputNome">
+    <br>
+    <br>
+    <input type="button" value="Inverta o nome" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Nome: </label>
+    <div id="resp"></div>
+    <br>
+
+    <script>
+        function calcular() {
+            let nome = document.getElementById("inputNome").value;
+            let sobrenome = 0;
+            for (let i = nome.length - 1; i >= 0; i--) {
+                if (nome.charAt(i) === " ") {
+                    sobrenome = i;
+                }
+            }
+            let inverter = inverterNome(nome,sobrenome)
+            document.getElementById("resp").innerText = inverter;
+        }
+        function inverterNome(nome,sobrenome){
+            let valor = "";
+            for (let i = sobrenome; i < nome.length; i++) {
+                valor += nome.charAt(i)
+            }
+            valor += ',  v'
+            for (let i = 0; i < sobrenome; i++) {
+        
+                valor += nome.charAt(i)
+            }
+            return valor;
+        }
+    </script>
+</body>
+</html>
