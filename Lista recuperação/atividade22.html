@@ -13,22 +13,21 @@
     <input type="text" name="numeros" id="numeros">
     <br>
     <br>
-    <input type="button" value="Mostrar maior número" onclick="calcular()">
+    <input type="button" value="Mostrar ímpares" onclick="calcular()">
     <br>
     <br>
-    <label for="resp">Maior: </label>
+    <label for="resp">Ímpares: </label>
     <div id="resp"></div>
 
     <script>
         function calcular() {
             let num = document.getElementById("numeros").value;
-            let n = num.split(",").map(Number);
-            let resultado = "Maior Número: ";
+            let impar = num.split(",").map(Number);
+            let resultado = "Números ímpares: ";
 
-            let m = n[0];
-            for (let i = 0; i < n.length; i++) {
-                if (n[i] > m) { 
-                    resultado = n[i];  
+            for (let i = 0; i < impar.length; i++) {
+                if (impar[i] % 2 === 1) {   
+                    resultado += impar[i] + ", ";  
                 }
             }
             document.getElementById("resp").innerText = resultado;

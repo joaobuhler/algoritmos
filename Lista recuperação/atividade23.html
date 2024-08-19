@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <label for="numeros">insira alguns numeros separados por virgula</label>
+    <input type="text" name="numeros" id="numeros" />
+    <br />
+    <br />
+    <input type="button" value="Mostrar maior número" onclick="calcular()" />
+    <br />
+    <br />
+    <label for="resp">Maior: </label>
+    <div id="resp"></div>
+
+    <script>
+      function calcular() {
+        let num = document.getElementById("numeros").value;
+        let n = num.split(",").map(Number);
+        let maior = funcMaiornum(n);
+        let menor = funcMenornum(n);
+        document.getElementById("resp").innerText = maior + menor;
+      }
+
+      function funcMaiornum(n) {
+        let m = n[0];
+        for (let i = 0; i < n.length; i++) {
+          if (n[i] > m) {
+            resultado = n[i];
+          }
+        }
+        return resultado;
+      }
+
+      function funcMenornum(n) {
+        let mv = n[0];
+        for (let i = 0; i < n.length; i++) {
+          if (n[i] < mv) {
+            resultado2 = n[i];
+          }
+        }
+        return resultado2;
+      }
+    </script>
+  </body>
+</html>
