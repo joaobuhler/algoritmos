@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="palavra">Insira uma palavra</label>
+    <input type="text" id="palavra" name="palavra">
+    <br>
+    <br>
+    <input type="button" value="Inverta a palavra" onclick="calcular()" >
+    <br>
+    <br>
+    <label for="resp">Saída: </label>
+    <div id="resp"></div>
+    <br>
+    <script>
+        function calcular(){
+
+        let n = document.getElementById("palavra").value;
+        let inverso = '';
+        for (let i = n.length - 1; i >=0 ;i--) {
+            inverso += n[i]
+        }
+        document.getElementById("resp").innerText = inverso;
+        }
+
+      
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

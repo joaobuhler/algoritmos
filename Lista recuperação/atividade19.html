@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <label for="numeros">insira alguns numeros separados por virgula</label>
+    <input type="text" name="numeros" id="numeros">
+    <br>
+    <br>
+    <input type="button" value="Mostrar Pares" onclick="calcular()">
+    <br>
+    <br>
+    <label for="resp">Pares: </label>
+    <div id="resp"></div>
+
+    <script>
+        function calcular() {
+            let num = document.getElementById("numeros").value;
+            let par = num.split(",").map(Number);
+            let resultado = "Números pares: ";
+
+            for (let i = 0; i < par.length; i++) {
+                if (par[i] % 2 === 0) { 
+                    resultado += par[i] + ", ";  
+                }
+            }
+            document.getElementById("resp").innerText = resultado;
+        
+        }
+
+        
+    </script>
+</body>
+</html>
