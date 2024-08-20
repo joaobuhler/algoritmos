@@ -11,40 +11,46 @@
     <input type="text" name="numeros" id="numeros" />
     <br />
     <br />
-    <input type="button" value="Mostrar maior número" onclick="calcular()" />
+    <input type="button" value="Mostrar maior e menor números" onclick="calcular()" />
     <br />
     <br />
-    <label for="resp">Maior: </label>
+    <label for="resp">Maior e Menor números: </label>
     <div id="resp"></div>
 
     <script>
       function calcular() {
         let num = document.getElementById("numeros").value;
         let n = num.split(",").map(Number);
-        let maior = funcMaiornum(n);
-        let menor = funcMenornum(n);
-        document.getElementById("resp").innerText = maior + menor;
-      }
 
-      function funcMaiornum(n) {
-        let m = n[0];
-        for (let i = 0; i < n.length; i++) {
-          if (n[i] > m) {
-            resultado = n[i];
+        function menorNumero(n) {
+        let menorValor = n[0];
+        for (let i = 1; i < n.length; i++) {
+          if (n[i] < menorValor) {
+            menorValor = n[i];
           }
         }
-        return resultado;
+        return menorValor;
       }
-
-      function funcMenornum(n) {
-        let mv = n[0];
-        for (let i = 0; i < n.length; i++) {
-          if (n[i] < mv) {
-            resultado2 = n[i];
+      
+ 
+      function maiorNumero(n) {
+        let maiorValor = n[0];
+        for (let i = 1; i < n.length; i++) {
+          if (n[i] > maiorValor) {
+            maiorValor = n[i];
           }
         }
-        return resultado2;
+        return maiorValor;
       }
+      
+   
+      const menor = menorNumero(n);
+      const maior = maiorNumero(n);
+
+      // Exibe os resultados
+      document.getElementById("resp").innerText = 
+        "Menor Número: " + menor + "\nMaior Número: " + maior;
+    }
     </script>
   </body>
 </html>

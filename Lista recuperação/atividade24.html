@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Parcelas com Juros Compostos</title>
+</head>
+<body>
+
+  <label for="valorProduto">Valor do Produto (R$):</label>
+  <input type="number" id="valorProduto">
+  <br>
+  <br>
+  <label for="taxaJuros">Taxa de Juros Mensal (%):</label>
+  <input type="number" id="taxaJuros">
+  <br>
+  <br>
+  <label for="numeroMeses">Número de Meses:</label>
+  <input type="number" id="numeroMeses">
+  <br>
+  <br>
+  <input type="button" value="Calcular" onclick="calcular()">
+
+  <div id="resp"></div>
+
+  <script>
+    function calcularParcelas(valorProduto, taxaJuros, numeroMeses) {
+      let valorTotal = valorProduto;
+
+      for (let i = 0; i < numeroMeses; i++) {
+        valorTotal = valorTotal * (1 + (taxaJuros / 100));
+      }
+
+      let valorParcela = valorTotal / numeroMeses;
+
+      return {
+        valorTotal: valorTotal, 
+        valorParcela: valorParcela
+      };
+    }
+
+    function calcular() {
+     
+      let valorProduto = parseFloat(document.getElementById("valorProduto").value);
+      let taxaJuros = parseFloat(document.getElementById("taxaJuros").value);
+      let numeroMeses = parseInt(document.getElementById("numeroMeses").value);
+
+      let resultado = calcularParcelas(valorProduto, taxaJuros, numeroMeses);
+
+      document.getElementById("resp").innerText = 
+        "Valor total a ser pago: R$ " + resultado.valorTotal +
+        "\nValor de cada parcela: R$ " + resultado.valorParcela;
+    }
+  </script>
+</body>
+</html>

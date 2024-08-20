@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de Idades</title>
+</head>
+<body>
+    <h1>Informar Idades e Anos de Nascimento</h1>
+
+    <label for="idades">Digite as idades separadas por vírgula:</label><br>
+    <input type="text" id="idades" placeholder="Exemplo: 18, 22, 30, 20"><br><br>
+
+    <label for="anos">Digite os anos de nascimento correspondentes, separados por vírgula:</label><br>
+    <input type="text" id="anos" placeholder="Exemplo: 2004, 2000, 1992, 2002"><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function contarMaisDe21(idades) {
+            let contador = 0;
+            for (let i = 0; i < idades.length; i++) {
+                if (idades[i] > 21) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        function contarAnosBissextos(anos) {
+            let contador = 0;
+
+            for (let i = 0; i < anos.length; i++) {
+                let ano = anos[i];
+                if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        function somarIdades(idades) {
+            let soma = 0;
+            for (let i = 0; i < idades.length; i++) {
+                soma += idades[i];
+            }
+            return soma;
+        }
+
+        function calcularMedia(idades) {
+            let soma = somarIdades(idades);
+            return soma / idades.length;
+        }
+
+        function calcular() {
+            let idadesTexto = document.getElementById("idades").value;
+            let anosTexto = document.getElementById("anos").value;
+
+            let idades = idadesTexto.split(",").map(Number);
+            let anos = anosTexto.split(",").map(Number);
+
+            let maisDe21 = contarMaisDe21(idades);
+            let anosBissextos = contarAnosBissextos(anos);
+            let somaIdades = somarIdades(idades);
+            let mediaIdades = calcularMedia(idades);
+
+            let resultado = `
+                Quantidade de pessoas com mais de 21 anos: ${maisDe21}<br>
+                Quantidade de pessoas nascidas em anos bissextos: ${anosBissextos}<br>
+                Soma de todas as idades: ${somaIdades}<br>
+                Média das idades: ${mediaIdades}
+            `;
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
