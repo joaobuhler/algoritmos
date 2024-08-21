@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soma dos Dígitos</title>
     <script>
-        // Função que recebe um número e retorna a soma dos seus dígitos
         function somaDosDigitos() {
-            // Obtém o valor do campo de entrada
+
             let numero = document.getElementById("numero").value;
             let soma = 0;
-
-            // Itera sobre cada dígito, converte para número e adiciona à soma
+ 
             for (let digito of numero) {
                 soma += parseInt(digito);
             }
 
-            // Exibe o resultado na página
             document.getElementById("resultado").innerText = "A soma dos dígitos é: " + soma;
         }
     </script>
@@ -24,14 +21,10 @@
 <body>
     <h1>Calculadora de Soma dos Dígitos</h1>
     <p>Digite um número inteiro positivo:</p>
+    <input type="number" id="numero">
     
-    <!-- Campo de entrada para o número -->
-    <input type="number" id="numero" placeholder="Digite um número" min="0">
-    
-    <!-- Botão para calcular a soma dos dígitos -->
     <button onclick="somaDosDigitos()">Calcular</button>
     
-    <!-- Elemento para mostrar o resultado -->
     <p id="resultado"></p>
 </body>
 </html>
