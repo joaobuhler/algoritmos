@@ -20,16 +20,23 @@
    <script>
      function calcular(){
        let ano = parseInt(document.getElementById("inputAno").value);
-       resposta = document.getElementById('resp');
+       let aux = validar(ano);
+             if (aux) {
+             resp = 'O ano é bissexto'
+             }
+             else {
+             resp = 'Não é bissexto'
+             }
+             document.getElementById("resp").innerText = resp;
+}
 
-       if (ano%400 == 0)
-        resposta.innerHTML="É bissexto";
-       else
-        if(ano%4==0 && ano%100!=0)
-         resposta.innerHTML="É bissexto";
-        else
-         resposta.innerHTML="Não é bissexto";
-     }
+     function validar(ano) {
+                let validar = false;
+                if (ano%4==0) {
+            validar = true;
+             }
+                 return validar;
+}
 
    </script>
     
