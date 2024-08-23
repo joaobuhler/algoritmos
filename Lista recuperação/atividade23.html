@@ -1,56 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <label for="numeros">Insira alguns números separados por vírgula</label>
+  <input type="text" id="numeros" />
+  <br /><br />
+  <input type="button" value="Mostrar maior e menor números" onclick="calcular()" />
+  <br /><br />
+  <label for="resp">Maior e Menor números: </label>
+  <div id="resp"></div>
 
-  <body>
-    <label for="numeros">insira alguns numeros separados por virgula</label>
-    <input type="text" name="numeros" id="numeros" />
-    <br />
-    <br />
-    <input type="button" value="Mostrar maior e menor números" onclick="calcular()" />
-    <br />
-    <br />
-    <label for="resp">Maior e Menor números: </label>
-    <div id="resp"></div>
-
-    <script>
-      function calcular() {
-        let num = document.getElementById("numeros").value;
-        let n = num.split(",").map(Number);
-
-        function menorNumero(n) {
-        let menorValor = n[0];
-        for (let i = 1; i < n.length; i++) {
-          if (n[i] < menorValor) {
-            menorValor = n[i];
-          }
-        }
-        return menorValor;
+  <script>
+    function calcular() {
+      let n = document.getElementById("numeros").value.split(",").map(Number);
+      let menor = n[0], maior = n[0];
+      
+      for (let i = 1; i < n.length; i++) {
+        if (n[i] < menor) menor = n[i];
+        if (n[i] > maior) maior = n[i];
       }
       
- 
-      function maiorNumero(n) {
-        let maiorValor = n[0];
-        for (let i = 1; i < n.length; i++) {
-          if (n[i] > maiorValor) {
-            maiorValor = n[i];
-          }
-        }
-        return maiorValor;
-      }
-      
-   
-      const menor = menorNumero(n);
-      const maior = maiorNumero(n);
-
-      // Exibe os resultados
-      document.getElementById("resp").innerText = 
-        "Menor Número: " + menor + "\nMaior Número: " + maior;
+      document.getElementById("resp").innerText = `Menor Número: ${menor}\nMaior Número: ${maior}`;
     }
-    </script>
-  </body>
+  </script>
+</body>
 </html>
