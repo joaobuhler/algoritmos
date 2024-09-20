@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ra">Insira RA</label>
+    <input type="number" name="ra" id="ra">
+    <input type="button" value="Procurar por RA" onclick="procure()">
+    <br>
+    <br>
+    <label for="nome">Insira Nome</label>
+    <input type="text" name="nome" id="nome">
+    <br>
+    <br>
+    <label for="Pbimestre">Insira nota 1° bimestre</label>  
+    <input type="number" name="Pbimestre" id="Pbimestre">
+    <br>
+    <br>
+    <label for="Sbimestre">Insira nota 2° bimestre</label>
+    <input type="number" name="Sbimestre" id="Sbimestre">
+    <br>
+    <br>
+    <label for="Tbimestre">Insira nota 3° bimestre</label>
+    <input type="number" name="Tbimestre" id="Tbimestre">
+    <br>
+    <br>
+    <label for="Qbimestre">Insira nota 4° bimestre</label>
+    <input type="number" name="Qbimestre" id="Qbimestre">
+    <br>
+    <br>
+    <input type="button" value="Insira o aluno" onclick="Inserir()">
+    <br>
+    <br>
+    <input type="button" value="Listar Alunos" onclick="listar()">
+    <div id="resp">....</div>
+    
+    <script src="alunos.js"></script>
+    <script src="funcaoAlunos.js"></script>
+
+</body>
+</html>
