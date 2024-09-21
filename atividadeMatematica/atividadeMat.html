@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="consumo">Insira o consumo de água em metros cúbicos</label>
+    <input type="number" name="consumo" id="consumo">
+    <br>
+    <br>
+    <input type="button" value="Calcular conta de água" onclick="Calcular()">
+    <br>
+    <br>
+    <label for="resposta">O valor da sua conta é de:</label>
+    <div id="resposta"></div>
+
+    <script>
+        function Calcular(){
+            consumo = parseInt(document.getElementById("consumo").value)
+            let saida = CalcularValor(consumo)
+            document.getElementById("resposta").innerText = saida
+        }
+
+        function CalcularValor(consumo){
+        let valor
+            if (consumo >= 0 && consumo <= 5){
+                valor = 90.76
+            }
+
+            else if (consumo >= 6 && consumo <= 10) {
+                valor = 90.76 + (consumo - 5) * 2.81
+            }
+
+            else if (consumo >= 11 && consumo <= 15) {
+                valor = 90.76 + 5 * 2.81 + (consumo - 10) * 15.64
+                
+            }
+
+            else if (consumo >= 16 && consumo <= 20) {
+                valor = 90.76 + 5 * 2.81 + 5 * 15.64 + (consumo - 15) * 15.72
+                
+            }
+
+            else if (consumo >= 21 && consumo <= 30) {
+                valor = 90.76 + 5 * 2.81 + 5 * 15.64 + 5 * 15.72 + (consumo - 20) * 15.85
+                
+            }
+
+            else{
+                valor = 90.76 + 5 * 2.81 + 5 * 15.64 + 5 * 15.72 + 10 * 15.85 + (consumo - 30) * 26.82
+            }
+
+            return valor
+        }
+    </script>
+</body>
+</html>
