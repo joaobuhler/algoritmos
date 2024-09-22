@@ -10,7 +10,10 @@
     <input type="number" name="consumo" id="consumo">
     <br>
     <br>
-    <input type="button" value="Calcular conta de água" onclick="Calcular()">
+    <input type="button" value="Calcular conta de água para o interior" onclick="Calcular()">
+    <br>
+    <br>
+    <input type="button" value="Calcular conta de água para Curitiba" onclick="CalcularCuritiba()">
     <br>
     <br>
     <label for="resposta">O valor da sua conta é de:</label>
@@ -20,6 +23,12 @@
         function Calcular(){
             consumo = parseInt(document.getElementById("consumo").value)
             let saida = CalcularValor(consumo)
+            document.getElementById("resposta").innerText = saida
+        }
+
+        function CalcularCuritiba(){
+            consumo = parseInt(document.getElementById("consumo").value)
+            let saida = CalcularValorCuritiba(consumo)
             document.getElementById("resposta").innerText = saida
         }
 
@@ -54,6 +63,40 @@
 
             return valor
         }
+
+        function CalcularValorCuritiba(consumo){
+            if (consumo >= 0 && consumo <= 5) {
+                valor = 93.28
+                    
+            } 
+                
+            else if (consumo >= 6 && consumo <= 10) {
+                valor = 93.28 + (consumo - 5) * 2.88
+
+            } 
+                
+            else if (consumo >= 11 && consumo <= 15) {
+                valor = 93.28 + 5 * 2.88 + (consumo - 10) * 16.08
+            }
+                
+            else if (consumo >= 16 && consumo <= 20) {
+                valor = 93.28 + 5 * 2.88 + 5 * 16.08 + (consumo - 15) * 16.16
+            } 
+                
+            else if (consumo >= 21 && consumo <= 30) {
+                valor = 93.28 + 5 * 2.88 + 5 * 16.08 + 5 * 16.16 + (consumo - 20) * 16.29
+            } 
+                
+            else {
+                valor = 93.28 + 5 * 2.88 + 5 * 16.08 + 5 * 16.16 + 10 * 16.29 + (consumo - 30) * 27.57
+            }
+
+            return valor
+
+        }
+
+        
+        
     </script>
 </body>
 </html>
