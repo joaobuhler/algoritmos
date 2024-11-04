@@ -1,14 +1,14 @@
-let listaComida = []; //conjunto de dados
+let listaCelular = []; //conjunto de dados
 let oQueEstaFazendo = ''; //variável global de controle
-let comida = null; //variavel global 
+let celular = null; //variavel global 
 bloquearAtributos(true);
 //backend (não interage com o html)
 function procurePorChavePrimaria(chave) {
-    for (let i = 0; i < listaComida.length; i++) {
-        const comida = listaComida[i];
-        if (comida.id == chave) {
-            comida.posicaoNaLista = i;
-            return listaComida[i];
+    for (let i = 0; i < listaCelular.length; i++) {
+        const celular = listaCelular[i];
+        if (celular.id == chave) {
+            celular.posicaoNaLista = i;
+            return listaCelular[i];
         }
     }
     return null;//não achou
@@ -24,9 +24,9 @@ function procure() {
     }
 
     if (id) { // se digitou um Id
-        comida = procurePorChavePrimaria(id);
-        if (comida) { //achou na lista
-            mostrarDadosComida(comida);
+        celular = procurePorChavePrimaria(id);
+        if (celular) { //achou na lista
+            mostrarDadosCelular(celular);
             visibilidadeDosBotoes('inline', 'none', 'inline', 'inline', 'none'); // Habilita botões de alterar e excluir
             mostrarAviso("Achou na lista, pode alterar ou excluir");
         } else { //não achou na lista
@@ -77,36 +77,41 @@ function salvar() {
 // obter os dados a partir do html
 
     let id;
-    if (comida == null) {
+    if (celular == null) {
          id = parseInt(document.getElementById("inputId").value);
     } else {
-        id = comida.id;
+        id = celular.id;
     }
 
-    const nome = document.getElementById("inputNome").value;
-    const peso = document.getElementById("inputPeso").value;
-    const distribuidor = parseFloat(document.getElementById("inputDistribuidor").value);
+    const marca = document.getElementById("inputMarca").value;
+    const modelo = document.getElementById("inputModelo").value;
+    const fabricante = document.getElementById("inputFabricante").value;
+    const dataLancamento = document.getElementById("inputDataLancamento").value;
+    const memoriaRAM = parseInt(document.getElementById("inputMemoriaRAM").value);
+    const memoriaROM = parseInt(document.getElementById("inputMemoriaROM").value);
+    const resolucaoTela = document.getElementById("inputResolucaoTela").value;
+    const preco = parseFloat(document.getElementById("inputPreco").value);
     
-if(id && nome && peso && distribuidor ){// se tudo certo 
+if(id && marca && modelo && fabricante && dataLancamento && memoriaRAM && memoriaROM && resolucaoTela && preco ){// se tudo certo 
         switch (oQueEstaFazendo) {
             case 'inserindo':
-                comida = new Comida (id,nome,peso,distribuidor);
-                listaComida.push(comida);
+                celular = new Celular (id,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,resolucaoTela,preco);
+                listaCelular.push(celular);
                 mostrarAviso("Inserido na lista");
                 break;
             case 'alterando':
-                comidaAlterado = new Comida(id,nome,peso,distribuidor);
-                listaComida[comida.posicaoNaLista] = comidaAlterado;
+                celularAlterado = new Celular (id,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,resolucaoTela,preco);
+                listaCelular[celular.posicaoNaLista] = celularAlterado;
                 mostrarAviso("Alterado");
                 break;
             case 'excluindo':
                 let novaLista = [];
-                for (let i = 0; i < listaComida.length; i++) {
-                    if (comida.posicaoNaLista != i) {
-                        novaLista.push(listaComida[i]);
+                for (let i = 0; i < listaCelular.length; i++) {
+                    if (celular.posicaoNaLista != i) {
+                        novaLista.push(listaCelular[i]);
                     }
                 }
-                listaComida = novaLista;
+                listaCelular = novaLista;
                 mostrarAviso("EXCLUIDO");
                 break;
             default:
@@ -130,16 +135,21 @@ function preparaListagem(vetor) {
         const linha = vetor[i];
         texto += 
             linha.id+" - " +
-            linha.nome+" - " +
-            linha.peso+" - " +
-            linha.distribuidor+"<br>";
+            linha.marca+" - " +
+            linha.modelo+" - " +
+            linha.fabricante+" - " +
+            linha.dataLancamento+" - " +
+            linha.memoriaRAM+" - " +
+            linha.memoriaROM+" - " +
+            linha.resolucaoTela+" - " +
+            linha.preco+"<br>";
     }
     return texto;
 }
 
 //backend->frontend (interage com html)
 function listar() {
-    document.getElementById("outputSaida").innerHTML = preparaListagem(listaComida);
+    document.getElementById("outputSaida").innerHTML = preparaListagem(listaCelular);
 }
 
 function cancelarOperacao() {
@@ -155,11 +165,16 @@ function mostrarAviso(mensagem) {
 }
 
 // Função para mostrar os dados do Filme nos campos
-function mostrarDadosComida(comida) {
-    document.getElementById("inputId").value = comida.id;
-    document.getElementById("inputNome").value = comida.nome;
-    document.getElementById("inputPeso").value = comida.peso;
-    document.getElementById("inputDistribuidor").value = comida.distribuidor;
+function mostrarDadosCelular(celular) {
+    document.getElementById("inputId").value = celular.id;
+    document.getElementById("inputMarca").value = celular.marca;
+    document.getElementById("inputModelo").value = celular.modelo;
+    document.getElementById("inputFabricante").value = celular.fabricante;
+    document.getElementById("inputDataLancamento").value = celular.dataLancamento;
+    document.getElementById("inputMemoriaRAM").value = celular.memoriaRAM;
+    document.getElementById("inputMemoriaROM").value = celular.memoriaROM;
+    document.getElementById("inputResolucaoTela").value = celular.resolucaoTela;
+    document.getElementById("inputPreco").value = celular.preco;
  
     // Define os campos como readonly
     bloquearAtributos(true);
@@ -167,9 +182,15 @@ function mostrarDadosComida(comida) {
 
 // Função para limpar os dados dos campos
 function limparAtributos() {
-    document.getElementById("inputNome").value = "";
-    document.getElementById("inputPeso").value = "";
-    document.getElementById("inputDistribuidor").value = "";
+    document.getElementById("inputId").value = '';
+    document.getElementById("inputMarca").value = '';
+    document.getElementById("inputModelo").value = '';
+    document.getElementById("inputFabricante").value = '';
+    document.getElementById("inputDataLancamento").value = '';
+    document.getElementById("inputMemoriaRAM").value = '';
+    document.getElementById("inputMemoriaROM").value = '';
+    document.getElementById("inputResolucaoTela").value = '';
+    document.getElementById("inputPreco").value = '';
    
     bloquearAtributos(true);
 }
@@ -177,9 +198,14 @@ function limparAtributos() {
 function bloquearAtributos(soLeitura) {
     //quando a chave primaria possibilita edicao, tranca (readonly) os outros e vice-versa
     document.getElementById("inputId").readOnly = !soLeitura;
-    document.getElementById("inputNome").readOnly = soLeitura;
-    document.getElementById("inputPeso").readOnly = soLeitura;
-    document.getElementById("inputDistribuidor").readOnly = soLeitura;
+    document.getElementById("inputMarca").value = soLeitura;
+    document.getElementById("inputModelo").value = soLeitura;
+    document.getElementById("inputFabricante").value = soLeitura;
+    document.getElementById("inputDataLancamento").value = soLeitura;
+    document.getElementById("inputMemoriaRAM").value = soLeitura;
+    document.getElementById("inputMemoriaROM").value = soLeitura;
+    document.getElementById("inputResolucaoTela").value = soLeitura;
+    document.getElementById("inputPreco").value = soLeitura;
 }
 
 // Função para deixar visível ou invisível os botões
