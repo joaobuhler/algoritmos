@@ -1,5 +1,5 @@
 class Celular {
-    constructor(id, marca, modelo, fabricante, dataLancamento, memoriaRAM, memoriaROM, resolucaoDaTela, preco) {
+    constructor(id, marca, modelo, fabricante, dataLancamento, memoriaRAM, memoriaROM, preco, posicaoNaLista ) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
@@ -7,7 +7,6 @@ class Celular {
         this.dataLancamento = dataLancamento;
         this.memoriaRAM = memoriaRAM;
         this.memoriaROM = memoriaROM;
-        this.resolucaoDaTela = resolucaoDaTela;
         this.preco = preco;
       
 

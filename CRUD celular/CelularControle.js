@@ -89,18 +89,17 @@ function salvar() {
     const dataLancamento = document.getElementById("inputDataLancamento").value;
     const memoriaRAM = parseInt(document.getElementById("inputMemoriaRAM").value);
     const memoriaROM = parseInt(document.getElementById("inputMemoriaROM").value);
-    const resolucaoTela = document.getElementById("inputResolucaoTela").value;
     const preco = parseFloat(document.getElementById("inputPreco").value);
-    
-if(id && marca && modelo && fabricante && dataLancamento && memoriaRAM && memoriaROM && resolucaoTela && preco ){// se tudo certo 
+    //verificar se o que foi digitado pelo USUÁRIO está correto
+if(id && marca && modelo && fabricante && dataLancamento && memoriaRAM && memoriaROM && preco ){// se tudo certo 
         switch (oQueEstaFazendo) {
             case 'inserindo':
-                celular = new Celular (id,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,resolucaoTela,preco);
+                celular = new Celular(id,marca,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,preco);
                 listaCelular.push(celular);
                 mostrarAviso("Inserido na lista");
                 break;
             case 'alterando':
-                celularAlterado = new Celular (id,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,resolucaoTela,preco);
+                celularAlterado = new Celular(id,marca,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,preco);
                 listaCelular[celular.posicaoNaLista] = celularAlterado;
                 mostrarAviso("Alterado");
                 break;
@@ -141,7 +140,6 @@ function preparaListagem(vetor) {
             linha.dataLancamento+" - " +
             linha.memoriaRAM+" - " +
             linha.memoriaROM+" - " +
-            linha.resolucaoTela+" - " +
             linha.preco+"<br>";
     }
     return texto;
@@ -164,7 +162,7 @@ function mostrarAviso(mensagem) {
     document.getElementById("divAviso").innerHTML = mensagem;
 }
 
-// Função para mostrar os dados do Filme nos campos
+// Função para mostrar os dados do Celular nos campos
 function mostrarDadosCelular(celular) {
     document.getElementById("inputId").value = celular.id;
     document.getElementById("inputMarca").value = celular.marca;
@@ -173,39 +171,35 @@ function mostrarDadosCelular(celular) {
     document.getElementById("inputDataLancamento").value = celular.dataLancamento;
     document.getElementById("inputMemoriaRAM").value = celular.memoriaRAM;
     document.getElementById("inputMemoriaROM").value = celular.memoriaROM;
-    document.getElementById("inputResolucaoTela").value = celular.resolucaoTela;
     document.getElementById("inputPreco").value = celular.preco;
- 
+
     // Define os campos como readonly
     bloquearAtributos(true);
 }
 
 // Função para limpar os dados dos campos
 function limparAtributos() {
-    document.getElementById("inputId").value = '';
-    document.getElementById("inputMarca").value = '';
-    document.getElementById("inputModelo").value = '';
-    document.getElementById("inputFabricante").value = '';
-    document.getElementById("inputDataLancamento").value = '';
-    document.getElementById("inputMemoriaRAM").value = '';
-    document.getElementById("inputMemoriaROM").value = '';
-    document.getElementById("inputResolucaoTela").value = '';
-    document.getElementById("inputPreco").value = '';
-   
+    document.getElementById("inputMarca").value = "";
+    document.getElementById("inputModelo").value = "";
+    document.getElementById("inputFabricante").value = "";
+    document.getElementById("inputDataLancamento").value = "";
+    document.getElementById("inputMemoriaRAM").value = "";
+    document.getElementById("inputMemoriaROM").value = "";
+    document.getElementById("inputPreco").value = "";
+
     bloquearAtributos(true);
 }
 
 function bloquearAtributos(soLeitura) {
     //quando a chave primaria possibilita edicao, tranca (readonly) os outros e vice-versa
     document.getElementById("inputId").readOnly = !soLeitura;
-    document.getElementById("inputMarca").value = soLeitura;
-    document.getElementById("inputModelo").value = soLeitura;
-    document.getElementById("inputFabricante").value = soLeitura;
-    document.getElementById("inputDataLancamento").value = soLeitura;
-    document.getElementById("inputMemoriaRAM").value = soLeitura;
-    document.getElementById("inputMemoriaROM").value = soLeitura;
-    document.getElementById("inputResolucaoTela").value = soLeitura;
-    document.getElementById("inputPreco").value = soLeitura;
+    document.getElementById("inputMarca").readOnly = soLeitura;
+    document.getElementById("inputModelo").readOnly = soLeitura;
+    document.getElementById("inputFabricante").readOnly = soLeitura;
+    document.getElementById("inputDataLancamento").readOnly = soLeitura;
+    document.getElementById("inputMemoriaRAM").readOnly = soLeitura;
+    document.getElementById("inputMemoriaROM").readOnly = soLeitura;
+    document.getElementById("inputPreco").readOnly = soLeitura;
 }
 
 // Função para deixar visível ou invisível os botões
