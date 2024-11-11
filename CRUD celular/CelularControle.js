@@ -1,6 +1,9 @@
 let listaCelular = []; //conjunto de dados
 let oQueEstaFazendo = ''; //variável global de controle
 let celular = null; //variavel global 
+
+window.onload=adicionarCelularLista();
+
 bloquearAtributos(true);
 //backend (não interage com o html)
 function procurePorChavePrimaria(chave) {
@@ -97,6 +100,7 @@ if(id && marca && modelo && fabricante && dataLancamento && memoriaRAM && memori
                 celular = new Celular(id,marca,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,preco);
                 listaCelular.push(celular);
                 mostrarAviso("Inserido na lista");
+                listar()
                 break;
             case 'alterando':
                 celularAlterado = new Celular(id,marca,modelo,fabricante,dataLancamento,memoriaRAM,memoriaROM,preco);
@@ -145,6 +149,21 @@ function preparaListagem(vetor) {
     return texto;
 }
 
+function adicionarCelularLista() {
+    listaCelular = []
+    let linha = new Celular(1, "Samsung","A51", "Samsung", "2023-01-13", 8, 256, 3000);
+    listaCelular.push(linha);
+
+    linha = new Celular(2, "Samsung","S23", "Samsung", "2023-07-08", 16, 128, 5000);
+    listaCelular.push(linha);
+
+    linha = new Celular(3,"Iphone","Iphone 15", "Apple", "2022-09-22", 8, 256, 3000 );
+    listaCelular.push(linha);
+
+    listar()
+
+}
+
 //backend->frontend (interage com html)
 function listar() {
     document.getElementById("outputSaida").innerHTML = preparaListagem(listaCelular);
@@ -162,7 +181,7 @@ function mostrarAviso(mensagem) {
     document.getElementById("divAviso").innerHTML = mensagem;
 }
 
-// Função para mostrar os dados do Celular nos campos
+// Função para mostrar os dados do Celular nos campos<input type="button" value="Listar Celulares" onclick="preparaListagem()">
 function mostrarDadosCelular(celular) {
     document.getElementById("inputId").value = celular.id;
     document.getElementById("inputMarca").value = celular.marca;
@@ -216,3 +235,4 @@ function visibilidadeDosBotoes(btProcure, btInserir, btAlterar, btExcluir, btSal
     document.getElementById("btCancelar").style.display = btSalvar; // o cancelar sempre aparece junto com o salvar
     document.getElementById("inputId").focus();
 }
+
