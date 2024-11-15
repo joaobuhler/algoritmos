@@ -86,13 +86,13 @@ function salvar() {
         id = cartas.id;
     }
 
-    const nome = document.getElementById("inputMarca").value;
-    const nivel = document.getElementById("inputModelo").value;
-    const raridade = document.getElementById("inputFabricante").value;
+    const nome = document.getElementById("inputNome").value;
+    const nivel = parseInt(document.getElementById("inputNivel").value);
+    const raridade = document.getElementById("inputRaridade").value;
     const dataLancamento = document.getElementById("inputDataLancamento").value;
-    const vida = parseInt(document.getElementById("inputMemoriaRAM").value);
-    const dano = parseInt(document.getElementById("inputMemoriaROM").value);
-    const elixir = parseFloat(document.getElementById("inputPreco").value);
+    const vida = parseInt(document.getElementById("inputVida").value);
+    const dano = parseInt(document.getElementById("inputDano").value);
+    const elixir = document.getElementById("inputElixir").value;
     //verificar se o que foi digitado pelo USUÁRIO está correto
 if(id && nome && nivel && raridade && dataLancamento && vida && dano && elixir ){// se tudo certo 
         switch (oQueEstaFazendo) {
@@ -138,26 +138,26 @@ function preparaListagem(vetor) {
         const linha = vetor[i];
         texto += 
             linha.id+" - " +
-            linha.marca+" - " +
-            linha.modelo+" - " +
-            linha.fabricante+" - " +
+            linha.nome+" - " +
+            linha.nivel+" - " +
+            linha.raridade+" - " +
             linha.dataLancamento+" - " +
-            linha.memoriaRAM+" - " +
-            linha.memoriaROM+" - " +
-            linha.preco+"<br>";
+            linha.vida+" - " +
+            linha.dano+" - " +
+            linha.elixir+"<br>";
     }
     return texto;
 }
 
 function adicionarCartasLista() {
     listaCartas = []
-    let linha = new Cartas(1, "Samsung","A51", "Samsung", "2023-01-13", 8, 256, 3000);
+    let linha = new Cartas(1, "Cavaleiro", 14, "Comum", "2023-01-13", 2339, 267, 3);
     listaCartas.push(linha);
 
-    linha = new Cartas(2, "Samsung","S23", "Samsung", "2023-07-08", 16, 128, 5000);
+    linha = new Cartas(2, "Mineiro", 13, "Lendário", "2023-07-08", 1460, 233, 3);
     listaCartas.push(linha);
 
-    linha = new Cartas(3,"Iphone","Iphone 15", "Apple", "2022-09-22", 8, 256, 3000 );
+    linha = new Cartas(3,"Pekka", 11, "Épica", "2022-09-22", 3760, 816, 7 );
     listaCartas.push(linha);
 
     listar()
@@ -184,13 +184,13 @@ function mostrarAviso(mensagem) {
 // Função para mostrar os dados do cartas nos campos<input type="button" value="Listar cartases" onclick="preparaListagem()">
 function mostrarDadosCartas(cartas) {
     document.getElementById("inputId").value = cartas.id;
-    document.getElementById("inputMarca").value = cartas.marca;
-    document.getElementById("inputModelo").value = cartas.modelo;
-    document.getElementById("inputFabricante").value = cartas.fabricante;
+    document.getElementById("inputNome").value = cartas.nome;
+    document.getElementById("inputNivel").value = cartas.nivel;
+    document.getElementById("inputRaridade").value = cartas.raridade;
     document.getElementById("inputDataLancamento").value = cartas.dataLancamento;
-    document.getElementById("inputMemoriaRAM").value = cartas.memoriaRAM;
-    document.getElementById("inputMemoriaROM").value = cartas.memoriaROM;
-    document.getElementById("inputPreco").value = cartas.preco;
+    document.getElementById("inputVida").value = cartas.vida;
+    document.getElementById("inputDano").value = cartas.dano;
+    document.getElementById("inputElixir").value = cartas.elixir;
 
     // Define os campos como readonly
     bloquearAtributos(true);
@@ -198,13 +198,13 @@ function mostrarDadosCartas(cartas) {
 
 // Função para limpar os dados dos campos
 function limparAtributos() {
-    document.getElementById("inputMarca").value = "";
-    document.getElementById("inputModelo").value = "";
-    document.getElementById("inputFabricante").value = "";
+    document.getElementById("inputNome").value = "";
+    document.getElementById("inputNivel").value = "";
+    document.getElementById("inputRaridade").value = "";
     document.getElementById("inputDataLancamento").value = "";
-    document.getElementById("inputMemoriaRAM").value = "";
-    document.getElementById("inputMemoriaROM").value = "";
-    document.getElementById("inputPreco").value = "";
+    document.getElementById("inputVida").value = "";
+    document.getElementById("inputDano").value = "";
+    document.getElementById("inputElixir").value = "";
 
     bloquearAtributos(true);
 }
@@ -212,13 +212,13 @@ function limparAtributos() {
 function bloquearAtributos(soLeitura) {
     //quando a chave primaria possibilita edicao, tranca (readonly) os outros e vice-versa
     document.getElementById("inputId").readOnly = !soLeitura;
-    document.getElementById("inputMarca").readOnly = soLeitura;
-    document.getElementById("inputModelo").readOnly = soLeitura;
-    document.getElementById("inputFabricante").readOnly = soLeitura;
+    document.getElementById("inputNome").readOnly = soLeitura;
+    document.getElementById("inputNivel").readOnly = soLeitura;
+    document.getElementById("inputRaridade").readOnly = soLeitura;
     document.getElementById("inputDataLancamento").readOnly = soLeitura;
-    document.getElementById("inputMemoriaRAM").readOnly = soLeitura;
-    document.getElementById("inputMemoriaROM").readOnly = soLeitura;
-    document.getElementById("inputPreco").readOnly = soLeitura;
+    document.getElementById("inputVida").readOnly = soLeitura;
+    document.getElementById("inputDano").readOnly = soLeitura;
+    document.getElementById("inputElixir").readOnly = soLeitura;
 }
 
 // Função para deixar visível ou invisível os botões
