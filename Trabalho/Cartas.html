@@ -6,52 +6,101 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>CRUD Trabalho Clash Royale</title>
 </head>
+<style>
 
+
+   *{
+      padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+   }
+.dados{
+   display: flex;
+   align-items: start;
+   flex-direction: column;
+   border: 1px solid black;
+   width: 30vw;
+   height: 100vh;
+   padding-left: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input[type="text"] {
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 4px;
+            background-color: rgb(206, 111, 111);
+            padding: 0.5rem;
+        }
+
+        input[type="number"] {
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 4px;
+            background-color: rgb(155, 154, 224);
+            padding: 0.5rem;
+        }
+
+        #inputVida{
+         border: 2px solid rgb(0, 0, 0);
+            border-radius: 4px;
+            background-color: rgb(206, 111, 111);
+            padding: 0.5rem;
+        }
+
+        input[type="date"] {
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 4px;
+            background-color: rgb(155, 154, 224);
+            padding: 0.5rem;
+        }
+</style>
 <body>
-
-   <h1>Cadastro de Personagens</h1>
-
-   <label for="inputId">Id</label>
-   <input type="number" name="inputId" id="inputId">
-   <input type="button" value="Procure" id="btProcure" onclick="procure()" style="display:inline;">
-   <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
-   <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
-   <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
-   <br><br>
-
-   <label for="inputNome">Nome da Carta</label>
-   <input type="text" name="inputNome" id="inputNome">
-   <br>
-   <label for="inputNivel">Nível da Carta</label>
-   <input type="number" name="inputNivel" id="inputNivel">
-   <br>
-   <label for="inputRaridade">Qual a raridade</label>
-   <input type="text" name="inputRaridade" id="inputRaridade">
-   <br>
-   <label for="inputDataLancamento">Data de Lançamento</label>
-   <input type="date" name="inputDataLancamento" id="inputDataLancamento">
-   <br>
-   <label for="inputVida">Vida da Carta</label>
-   <input type="number" name="inputVida" id="inputVida">
-   <br>
-   <label for="inputDano">Dano da Carta</label>
-   <input type="number" name="inputDano" id="inputDano">
-   <br>
-   <label for="inputElixir">Quanto de elixir custa a carta?</label>
-   <input type="range" id="inputElixir" min="1" max="9" step="1" value="5" oninput="atualizarValor(this.value)">
-   <span id="rangeValue">5</span>
-   <br>
+<div class="dados">
    
-
-   <br><br>
-   <div id="divAviso" style="background-color: antiquewhite;"></div>
-   <br>
-   <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
-   <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()" style="display:none;">
-   <br><br>
- 
-
-   <div id="outputSaida" style="background-color: aqua;">...</div>
+      <h1>Cadastro de Personagens</h1>
+   
+      <label for="inputId">Id</label>
+      <input type="number" name="inputId" id="inputId">
+      <br>
+      <input type="button" value="Procure" id="btProcure" onclick="procure()" style="display:inline;">
+      <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+      <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+      <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+      <br><br>
+   
+      <label for="inputNome">Nome da Carta</label>
+      <input type="text" name="inputNome" id="inputNome">
+      <br>
+      <label for="inputNivel">Nível da Carta</label>
+      <input type="number" name="inputNivel" id="inputNivel">
+      <br>
+      <label for="inputRaridade">Qual a raridade</label>
+      <input type="text" name="inputRaridade" id="inputRaridade">
+      <br>
+      <label for="inputDataLancamento">Data de Lançamento</label>
+      <input type="date" name="inputDataLancamento" id="inputDataLancamento">
+      <br>
+      <label for="inputVida">Vida da Carta</label>
+      <input type="number" name="inputVida" id="inputVida">
+      <br>
+      <label for="inputDano">Dano da Carta</label>
+      <input type="number" name="inputDano" id="inputDano">
+      <br>
+      <label for="inputElixir">Quanto de elixir custa a carta?</label>
+      <input type="range" id="inputElixir" min="1" max="9" step="1" value="5" oninput="atualizarValor(this.value)">
+      <span id="rangeValue">5</span>
+      <br>
+   
+   
+      <br><br>
+      <div id="divAviso" style="background-color: antiquewhite;"></div>
+      <br>
+      <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+      <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()" style="display:none;">
+      <br><br>
+   
+   
+      <div id="outputSaida"></div>
+</div>
 
    <script src="./Cartas.js"></script>
    <script src="./CartasControle.js"></script>

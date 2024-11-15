@@ -192,6 +192,7 @@ function mostrarDadosCartas(cartas) {
     document.getElementById("inputDano").value = cartas.dano;
     document.getElementById("inputElixir").value = cartas.elixir;
 
+    document.getElementById("rangeValue").textContent = cartas.elixir;
     // Define os campos como readonly
     bloquearAtributos(true);
 }
