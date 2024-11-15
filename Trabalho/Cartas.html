@@ -19,26 +19,27 @@
    <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
    <br><br>
 
-   <label for="inputMarca">Marca</label>
-   <input type="text" name="inputMarca" id="inputMarca">
+   <label for="inputNome">Nome da Carta</label>
+   <input type="text" name="inputNome" id="inputNome">
    <br>
-   <label for="inputModelo">Modelo</label>
-   <input type="text" name="inputModelo" id="inputModelo">
+   <label for="inputNivel">Nível da Carta</label>
+   <input type="number" name="inputNivel" id="inputNivel">
    <br>
-   <label for="inputFabricante">Fabricante</label>
-   <input type="text" name="inputFabricante" id="inputFabricante">
+   <label for="inputRaridade">Qual a raridade</label>
+   <input type="text" name="inputRaridade" id="inputRaridade">
    <br>
    <label for="inputDataLancamento">Data de Lançamento</label>
    <input type="date" name="inputDataLancamento" id="inputDataLancamento">
    <br>
-   <label for="inputMemoriaRAM">Memoria RAM</label>
-   <input type="number" name="inputMemoriaRAM" id="inputMemoriaRAM">
+   <label for="inputVida">Vida da Carta</label>
+   <input type="number" name="inputVida" id="inputVida">
    <br>
-   <label for="inputMemoriaROM">Memoria ROM</label>
-   <input type="number" name="inputMemoriaROM" id="inputMemoriaROM">
+   <label for="inputDano">Dano da Carta</label>
+   <input type="number" name="inputDano" id="inputDano">
    <br>
-   <label for="inputPreco">Preço</label>
-   <input type="number" name="inputPreco" id="inputPreco">
+   <label for="inputElixir">Quanto de elixir custa a carta?</label>
+   <input type="range" id="inputElixir" min="1" max="9" step="1" value="5" oninput="atualizarValor(this.value)">
+   <span id="rangeValue">5</span>
    <br>
    
 
@@ -52,8 +53,13 @@
 
    <div id="outputSaida" style="background-color: aqua;">...</div>
 
-   <script src="./Celular.js"></script>
-   <script src="./CelularControle.js"></script>
+   <script src="./Cartas.js"></script>
+   <script src="./CartasControle.js"></script>
+   <script>
+      function atualizarValor(value) {
+          document.getElementById("rangeValue").textContent = value;
+      }
+  </script>
 </body>
 
 </html>
