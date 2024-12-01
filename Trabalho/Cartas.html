@@ -145,7 +145,21 @@ input[type="text"] {
       function atualizarValor(value) {
           document.getElementById("rangeValue").textContent = value;
       }
+
+      const numericInputs = document.querySelectorAll('input[type="number"]');
+
+// Adiciona um evento de entrada para cada input numérico
+numericInputs.forEach(input => {
+   input.addEventListener('input', () => {
+      if (input.value < 0) {
+         alert('Valores negativos não são permitidos!');
+         input.value = ''; // Limpa o valor do campo
+      }
+   });
+});
   </script>
+
+  
 </body>
 
-</html>
+</html> 
