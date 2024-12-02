@@ -122,7 +122,7 @@
             return;
         }
     }
-    
+
     //backend
     function preparaListagem(vetor) {
         let texto = "";
@@ -246,3 +246,4 @@
         listar(); // Atualiza a interface com os dados carregados
     };
         
+    
